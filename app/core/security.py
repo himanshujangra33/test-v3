@@ -5,9 +5,9 @@ from dotenv import load_dotenv
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 
-load_dotenv('.env_4cb7114e-dc00-4a30-bd4f-f3fb96d29919', override=True)
+load_dotenv('.env_834719376c65ba67', override=True)
 
-SECRET_KEY = os.getenv("SECRET_KEY", "change-this-secret-key")
+SECRET_KEY = os.getenv("SECRET_KEY", "")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "30"))
 

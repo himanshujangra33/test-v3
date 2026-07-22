@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 export PYTHONUNBUFFERED=1
-PORT=60829
+PORT=${PORT:-45023}
 
 if [ ! -d ".venv" ]; then
   python3 -m venv .venv
@@ -10,4 +10,4 @@ fi
 source .venv/bin/activate
 pip install -r requirements.txt -q
 
-exec uvicorn app.main:app --host 0.0.0.0 --port 60829 --reload
+exec uvicorn app.main:app --host 0.0.0.0 --port $PORT

@@ -6,7 +6,7 @@ from httpx import ASGITransport, AsyncClient
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 
-load_dotenv('.env_4cb7114e-dc00-4a30-bd4f-f3fb96d29919', override=True)
+load_dotenv('.env_834719376c65ba67', override=True)
 
 from app.main import app
 from app.database import Base, get_db
