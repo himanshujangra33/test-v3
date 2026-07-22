@@ -16,3 +16,8 @@ async def health_check():
 @app.get("/ping")
 async def ping():
     return {"message": "pong"}
+
+
+@app.get("/ding")
+async def ding():
+    return {"message": "dong"}
