@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  app:
+    build: .
+    ports:
+      - "60829:60829"
+    env_file:
+      - .env_4cb7114e-dc00-4a30-bd4f-f3fb96d29919
+    depends_on:
+      - db
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: gen_b65476772e
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
