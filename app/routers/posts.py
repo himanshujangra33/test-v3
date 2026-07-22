@@ -40,7 +40,12 @@ async def list_posts(
 
 
 @router.get("/{post_id}", response_model=PostRead)
-async def get_post(post_id: UUID, db: AsyncSession = Depends(get_db)):
+async def get_post(
+    post_id: UUID,
+    db: AsyncSession = Depends(get_db),
+    offset: int = Query(0, ge=0),
+    limit: int = Query(20, ge=1, le=100),
+):
     result = await db.execute(select(Post).where(Post.id == post_id))
     post = result.scalar_one_or_none()
     if not post:

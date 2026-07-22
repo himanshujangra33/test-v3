@@ -1,5 +1,5 @@
 # Authentication routes for user registration and login.
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from app.core.auth import get_current_user
@@ -34,5 +34,9 @@ async def login_user(payload: UserLogin, db: AsyncSession = Depends(get_db)):
 
 
 @router.get("/me", response_model=UserRead)
-async def read_me(current_user: User = Depends(get_current_user)):
+async def read_me(
+    current_user: User = Depends(get_current_user),
+    offset: int = Query(0, ge=0),
+    limit: int = Query(20, ge=1, le=100),
+):
     return current_user
