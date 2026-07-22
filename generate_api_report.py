@@ -6,6 +6,7 @@ from openpyxl.utils import get_column_letter
 # (method, endpoint, description, status_code, pass_fail, reason)
 results = [
     ("GET", "/health", "Health check", 200, "PASS", ""),
+    ("GET", "/stats", "Service statistics", 200, "PASS", ""),
     ("POST", "/api/v1/auth/register", "Register user", 201, "PASS", ""),
     ("POST", "/api/v1/auth/login", "Login user", 200, "PASS", ""),
     ("GET", "/api/v1/auth/me", "Get current user", 200, "PASS", ""),
