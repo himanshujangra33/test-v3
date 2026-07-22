@@ -11,3 +11,8 @@ app.include_router(posts.router, prefix="/api/v1")
 @app.get("/health")
 async def health_check():
     return {"status": "ok"}
+
+
+@app.get("/ping")
+async def ping():
+    return {"message": "pong"}
