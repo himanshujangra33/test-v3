@@ -42,6 +42,14 @@ async def stats(
     }
 
 
+@app.get("/api/v1/ping")
+async def api_ping(
+    offset: int = Query(0, ge=0),
+    limit: int = Query(20, ge=1, le=100),
+):
+    return {"message": "pong"}
+
+
 @app.get("/ping")
 async def ping(
     offset: int = Query(0, ge=0),
